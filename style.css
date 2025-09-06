@@ -1,11 +1,39 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.submit {
+    width: 45px;
+    height: 30px;
+}
+
+.reset {
+    width: 70px;
+    height: 35px;
+}
+
+.task_input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width: 350px;
+    height: 40px;
+}
+
+.date_input {
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+}
+
 .to-do {
     margin: 0 auto;
     border: 1px solid grey;
     border-radius: 5px;
-    width: 300px;
+    width: 370px;
     height: auto;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
     min-height: 300px;
 }
