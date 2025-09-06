@@ -8,7 +8,7 @@ document.querySelector('.to-do').appendChild(task_display);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    let task = 0;
+    let task = 1;
 
     submit_btn.disabled = true;
     reset_btn.disabled = true;
@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(task >= 1) {
         reset_btn.disabled = false;
     }
+
+    reset_btn.addEventListener('click', () => {
+        task_display.textContent = '';
+    })
 
     document.querySelector('#form').onsubmit = (e) => {
         e.preventDefault();
