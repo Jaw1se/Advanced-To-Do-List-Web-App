@@ -2,13 +2,9 @@ const task_name = document.querySelector('#task_input');
 const task_date = document.querySelector('#date_input');
 const submit_btn = document.querySelector('#submit');
 const reset_btn = document.querySelector('#reset');
-let task_display = document.createElement('div');
-
-document.querySelector('.to-do').appendChild(task_display);
+const task_display = document.querySelector('#task_display');
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    let task = 1;
 
     submit_btn.disabled = true;
     reset_btn.disabled = true;
@@ -17,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         submit_btn.disabled = task_name.value.trim() === '';
     });
 
-    if(task >= 1) {
-        reset_btn.disabled = false;
-    }
 
-    reset_btn.addEventListener('click', () => {
-        task_display.textContent = '';
-    })
+    reset_btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        task_display.innerHTML = '';
+        reset_btn.disabled = true;
+    });
+
 
     document.querySelector('#form').onsubmit = (e) => {
         e.preventDefault();
@@ -35,18 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
         let taskElement = document.createElement('div');
         taskElement.classList.add('task-item');
         taskElement.innerHTML = `
-            <p>Task: ${task_name.value}</p>
-            <p>Due: ${task_date.value}</p>
+            <input type="checkbox" class="checkbox">
+            <p class="task">${task_name.value}</p>
+            <p class="due">${task_date.value || 'No date'}</p>
+            <button class="delete_btn">Delete</button>
         `;
+
+
+        taskElement.querySelector('.delete_btn').addEventListener('click', () => {
+            taskElement.remove();
+            if (task_display.children.length === 0) {
+                reset_btn.disabled = true;
+            }
+        });
+
+        taskElement.querySelector('.checkbox').addEventListener('change', (e) => {
+            taskElement.querySelector('.task').classList.toggle('completed', e.target.checked);
+        });
 
         task_display.appendChild(taskElement);
 
         task_name.value = '';
         task_date.value = '';
         submit_btn.disabled = true;
+        reset_btn.disabled = false;
     }
-
-})
-
-
-
+});

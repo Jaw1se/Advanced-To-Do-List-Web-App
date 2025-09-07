@@ -1,39 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-}
-
-.submit {
-    width: 45px;
-    height: 30px;
-}
-
-.reset {
-    width: 70px;
-    height: 35px;
-}
-
-.task_input {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    width: 350px;
-    height: 40px;
-}
-
-.date_input {
-    margin-top: 10px;
-    width: 200px;
-    height: 30px;
+    font-size: 18px;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
 .to-do {
-    margin: 0 auto;
+    margin: 50px auto;
     border: 1px solid grey;
-    border-radius: 5px;
-    width: 370px;
-    height: auto;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
     text-align: center;
     padding: 20px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
-    min-height: 300px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    background: #fff;
+    min-height: 350px;
+}
+
+.submit,
+.reset {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+.submit {
+    background: #555;
+    color: white;
+}
+
+.submit:hover {
+    background: #333;
+}
+
+.reset {
+    background: #555;
+    color: white;
+}
+
+.reset:hover {
+    background: #333;
+}
+
+.task_input {
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.date_input {
+    width: 60%;
+    max-width: 250px;
+    height: 35px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.task_list {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.task-item {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.task {
+    flex: 1;
+    margin: 0;
+}
+
+.due {
+    font-size: 14px;
+    color: #555;
+    margin: 0 10px;
+}
+
+.delete_btn {
+    color: white;
+    background: #555;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete_btn:hover {
+    background: #333;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
 }
