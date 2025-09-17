@@ -117,3 +117,8 @@ body {
     text-decoration: line-through;
     color: grey;
 }
+
+.light_switch_btn {
+    color: white;
+    background: #333333;
+}

@@ -3,6 +3,7 @@ const task_date = document.querySelector('#date_input');
 const submit_btn = document.querySelector('#submit');
 const reset_btn = document.querySelector('#reset');
 const task_display = document.querySelector('#task_display');
+const light_switch_btn  = document.querySelector('#light_switch_btn');
 
 document.addEventListener('DOMContentLoaded', () => {
     submit_btn.disabled = true;
@@ -75,3 +76,24 @@ function addEvents(taskElement) {
 function restoreEvents() {
     document.querySelectorAll('.task-item').forEach(task => addEvents(task));
 }
+
+light_switch_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (light_switch_btn.innerText === 'White') {
+
+        light_switch_btn.innerText = 'Black';
+        document.body.style.backgroundColor = 'black';
+        document.body.style.color = 'black';
+
+    } else if (light_switch_btn.innerText === 'Black') {
+
+        light_switch_btn.innerText = 'White';
+        document.body.style.backgroundColor = 'white';
+        document.style.color = 'black';
+
+    } else {
+        alert('Error!');
+    }
+
+});
