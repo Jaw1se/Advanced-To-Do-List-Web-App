@@ -33,15 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#form').onsubmit = (e) => {
         e.preventDefault();
-
         if (task_name.value.trim() === '') return;
+
+        let taskObj = {
+            name: task_name.value,
+            due: task_date.value || 'No date',
+            completed: false
+        };
 
         let taskElement = document.createElement('div');
         taskElement.classList.add('task-item');
         taskElement.innerHTML = `
             <input type="checkbox" class="checkbox">
-            <p class="task">${task_name.value}</p>
-            <p class="due">${task_date.value || 'No date'}</p>
+            <p class="task">${taskObj.name}</p>
+            <p class="due">${taskObj.due}</p>
             <button class="delete_btn">Delete</button>
         `;
 
@@ -61,9 +66,7 @@ function addEvents(taskElement) {
     taskElement.querySelector('.delete_btn').addEventListener('click', () => {
         taskElement.remove();
         localStorage.setItem('tasks', task_display.innerHTML);
-        if (task_display.children.length === 0) {
-            reset_btn.disabled = true;
-        }
+        if (task_display.children.length === 0) reset_btn.disabled = true;
     });
 
     taskElement.querySelector('.checkbox').addEventListener('change', (e) => {
@@ -75,3 +78,5 @@ function addEvents(taskElement) {
 function restoreEvents() {
     document.querySelectorAll('.task-item').forEach(task => addEvents(task));
 }
+
+
