@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <input type="checkbox" class="checkbox">
             <p class="task">${taskObj.name}</p>
             <p class="due">${taskObj.due}</p>
+            <button class="text_change">✏️</button>
             <button class="delete_btn">Delete</button>
         `;
 
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         reset_btn.disabled = false;
 
         localStorage.setItem('tasks', task_display.innerHTML);
-    }
+    };
 });
 
 function addEvents(taskElement) {
@@ -73,10 +74,21 @@ function addEvents(taskElement) {
         taskElement.querySelector('.task').classList.toggle('completed', e.target.checked);
         localStorage.setItem('tasks', task_display.innerHTML);
     });
+
+    taskElement.querySelector('.text_change').addEventListener('click', (e) => {
+        e.preventDefault();
+        let oldText = taskElement.querySelector('.task').innerText;
+        let new_name = prompt("Change task text", oldText);
+
+        if (!new_name || new_name.trim().length < 1) {
+            alert("Task name can't be empty!");
+        } else {
+            taskElement.querySelector('.task').innerText = new_name;
+            localStorage.setItem('tasks', task_display.innerHTML);
+        }
+    });
 }
 
 function restoreEvents() {
     document.querySelectorAll('.task-item').forEach(task => addEvents(task));
 }
-
-

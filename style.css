@@ -118,3 +118,7 @@ body {
     color: grey;
 }
 
+.text_change {
+    border: 0;
+    background: none;
+}
