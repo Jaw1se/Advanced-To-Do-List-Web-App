@@ -12,14 +12,15 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 .to-do {
     margin: 50px auto;
     border: 1px solid grey;
     border-radius: 8px;
-    max-width: 500px;
     width: 90%;
+    max-width: 400px;
     text-align: center;
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
@@ -37,38 +38,35 @@ body {
 }
 
 .submit {
-    background: #555;
+    background: royalblue;
     color: white;
 }
 
 .submit:hover {
-    background: #333;
+    background: darkblue;
 }
 
 .reset {
-    background: #555;
+    background: royalblue;
     color: white;
 }
 
 .reset:hover {
-    background: #333;
+    background: darkblue;
 }
 
-.task_input {
+.task_input,
+.date_input {
     font-size: 16px;
     width: 100%;
-    max-width: 400px;
-    height: 40px;
-    padding: 5px 10px;
+    max-width: 100%;
     margin-bottom: 10px;
+    padding: 5px 10px;
 }
 
 .date_input {
-    width: 60%;
     max-width: 250px;
-    height: 35px;
-    padding: 5px;
-    margin-bottom: 10px;
+    width: 60%;
 }
 
 .task_list {
@@ -86,7 +84,6 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 .task {
@@ -102,7 +99,7 @@ body {
 
 .delete_btn {
     color: white;
-    background: #555;
+    background: royalblue;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -110,7 +107,7 @@ body {
 }
 
 .delete_btn:hover {
-    background: #333;
+    background: darkblue;
 }
 
 .completed {
@@ -122,3 +119,4 @@ body {
     border: 0;
     background: none;
 }
+
